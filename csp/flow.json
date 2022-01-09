@@ -1,0 +1,164 @@
+{
+
+	"flow_msg_template":{
+	    "paint":[
+	    	"TButton 1 : Spoit",
+	    	"TButton 2 : Layer",
+	    	".F19 : set Default",
+	    	"<a click1>movie<\/a>",
+	    	"<a click2>Document<\/a>"
+	    ],
+        "anime":[
+            "TButton 1 : fil narrow",
+            "TButton 2 : select",
+            "<a click1>movie<\/a>",
+            "<a click2>Document<\/a>"
+        ],
+	    "onomatopoeia":[
+    	    "<a click1>movie</a>",
+    	    "<a click2>Document</a>"
+	    ],
+        "onomatopoeia_fukidashi":[
+            "<a click1>movie</a>",
+            "<a click2>Document</a>"
+        ],
+
+		"character":[
+			"<a click1>movie</a>",
+			"<a click2>Document</a>"
+		],
+        "dustpan":[
+            "R1 : Eraser all",
+            "R2 : line serect",
+            "<a click1>movie</a>",
+            "<a click2>Document</a>"
+        ],
+
+		"import":[
+			"1 .F16 : import 1",
+			"<a click1>movie</a>",
+			"<a click2>Document</a>"
+		],
+        "lineart":[
+            "<a click1>movie</a>",
+            "<a click2>Document</a>"
+        ]
+
+	},
+	"flow":{
+        "dSketch_p":{
+            "name":"Detail Sketch",
+            "key":"d",
+            "mode":"paint",
+            "flag":9,
+            "doc":"http:www.google.com",
+            "movie":"e:\\video\\CSP\\CSP_painting_sperma.avi",
+            "msg":"paint"
+            },
+        "Base_p":{
+            "name":"base color",
+            "key":"b",
+            "mode":"paint",
+            "flag":13,
+            "doc":"http:www.google.com",
+            "movie":"e:\\video\\CSP\\CSP_painting_sperma.avi",
+            "msg":"paint"
+            },
+        "Vegetation_p":{
+            "name":"general",
+            "key":"a",
+            "mode":"paint",
+            "flag":6,
+            "doc":"http:www.google.com",
+            "movie":"e:\\video\\CSP\\CSP_painting_sperma.avi",
+            "msg":"paint"
+            },
+        "highlight_p":{
+                "name":"highlight shadow",
+                "key":"h",
+                "mode":"paint",
+                "flag":1,
+                "doc":"http:www.google.com",
+                "movie":"e:\\video\\CSP\\CSP_painting_sperma.avi",
+                "msg":"paint"
+                },
+    
+
+        "Sub_b":{
+            "name":"Sub",
+            "key":"s",
+            "mode":"Base",
+            "flag":1,
+            "doc":"http:www.google.com",
+            "movie":"e:\\video\\CSP\\CSP_line_lash.avi",
+            "msg":"import"
+            },
+        "Normal_b":{
+            "name":"Normal",
+            "key":"n",
+            "mode":"Base",
+            "flag":2,
+            "doc":"http:www.yahoo.com",
+            "movie":"e:\\video\\CSP\\CSP_line_hair.avi",
+            "msg":"import"
+            },
+
+        "Up_l":{
+            "name":"main Up",
+            "key":"u",
+            "mode":"lineart",
+            "flag":1,
+            "doc":"http:www.google.com",
+            "movie":"e:\\video\\CSP\\CSP_line_face.avi",
+            "msg":"lineart"
+            },
+        "Balloon_l":{
+            "name":"fukidashi Ballon",
+            "key":"b",
+            "mode":"lineart",
+            "flag":8,
+            "doc":"http:www.google.com",
+            "movie":"e:\\video\\CSP\\CSP_line_lash.avi",
+            "msg":"lineart"
+            },
+        "Shadow_l":{
+            "name":"shadow",
+            "key":"s",
+            "mode":"lineart",
+            "flag":9,
+            "doc":"http:www.google.com",
+            "movie":"e:\\video\\CSP\\CSP_line_lash.avi",
+            "msg":"lineart"
+            },
+
+        "Liquid_l":{
+            "name":"Liquid",
+            "key":"l",
+            "mode":"lineart",
+            "flag":10,
+            "doc":"http:www.google.com",
+            "movie":"e:\\video\\CSP\\CSP_line_lash.avi",
+            "msg":"lineart"
+            },
+
+        "Common_l":{
+            "name":"Common",
+            "key":"r",
+            "mode":"lineart",
+            "flag":11,
+            "doc":"http:www.google.com",
+            "movie":"e:\\video\\CSP\\CSP_line_lash.avi",
+            "msg":"lineart"
+            },
+        "White_l":{
+            "name":"White",
+            "key":"w",
+            "mode":"lineart",
+            "flag":16,
+            "doc":"http:www.google.com",
+            "movie":"e:\\video\\CSP\\CSP_line_lash.avi",
+            "msg":"lineart"
+            }
+
+	}
+}
