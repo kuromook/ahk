@@ -346,14 +346,16 @@ Send,{w}
 sound(780,180)
 return
 
+
 _csp_makeBasecolor:
 send,^!{F1}
 Gosub, _csp_clipping
 send, !{Delete}
 Return
 
-
-
++1::
+Gosub, _csp_makeBasecolor
+Return
 
 
 

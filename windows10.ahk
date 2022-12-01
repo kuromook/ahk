@@ -63,8 +63,6 @@ Send, ^!+{4}
 Return
 #4:
 send,^!+{4}
-
-
 Return
 
 
@@ -77,6 +75,9 @@ Suspend,Permit
 Run,C:\Program Files\AutoHotkey\AutoHotkey.exe C:\tool\Autohotkey\windows10.ahk /r /f
 return
 
+Xbutton1::
+send,{Esc}
+return
 ;japanese input like mac OS
 LAlt & Space::
 CapsLock & Space::
