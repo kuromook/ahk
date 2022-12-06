@@ -27,12 +27,15 @@ getDoubleKeyPaint(){
   dbl.append( new Operation("Main"   , 1,"x", 1, "{x}", "key"))
   dbl.append( new Operation("erace"   , 1,"x", 2, "_csp_paint_highlight_swap", "sub"))
 
+  ; liquid
+  dbl.append( new Operation("curve fill"   , 2,"n", 1, "{Numpad4}", "key"))
+  ; default
   dbl.append( new Operation("Free"   , 0,"j", 1, "{p}", "key"))
   dbl.append( new Operation("Brush"   , 0,"j", 2, "{p}", "key"))
   dbl.append( new Operation("curve thin"   , 0,"n", 2, "{z}", "key"))
   dbl.append( new Operation("curve fill"   , 1,"n", 1, "{Numpad9}", "key"))
-  dbl.append( new Operation("air brush"   , 0,"m", 1, "{Numpad2}", "key"))
-  dbl.append( new Operation("blur"   , 0,"m", 2, "{b}", "key"))
+  dbl.append( new Operation("air brush"   , 0,"m", 1, "{b}", "key"))
+  dbl.append( new Operation("blur"   , 0,"m", 2, "{Numpad2}", "key"))
 
   dbl.append( new Operation("main color"   , 0,"i", 1, "{w}", "key"))
   dbl.append( new Operation("fill"   , 0,"i", 2, "{q}", "key"))
@@ -402,6 +405,13 @@ return
 Numpad3::
 csp_paint_sketch:
 _cspflowSC("d")
+gosub,csp_paint_flow_sc_default
+return
+
+;liduid
+Numpad4::
+csp_paint_liduid:
+_cspflowSC("l")
 gosub,csp_paint_flow_sc_default
 return
 

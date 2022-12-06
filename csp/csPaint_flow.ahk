@@ -7,7 +7,7 @@ if(IME_IsON(WinExist("A")) ){
  IME_ON(WinExist("A"), False)
 }
 if(buf_CSPMode =10) 
-  Input,InputChar,C I L1 T2,{Esc},a,b,d,h,q ;paint mode
+  Input,InputChar,C I L1 T2,{Esc},a,b,d,h,l,q ;paint mode
 else if(buf_CSPMode =3)
   Input,InputChar,C I L1 T2,{Esc},n,s,p,q ;Base mode
 else if(buf_CSPMode =2)
