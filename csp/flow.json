@@ -91,7 +91,15 @@
                 "movie":"e:\\video\\CSP\\CSP_painting_sperma.avi",
                 "msg":"paint"
                 },
-            
+        "flat_p":{
+                "name":"flat",
+                "key":"f",
+                "mode":"paint",
+                "flag":3,
+                "doc":"http:www.google.com",
+                "movie":"e:\\video\\CSP\\CSP_painting_sperma.avi",
+                "msg":"paint"
+                },           
 
         "Sub_b":{
             "name":"Sub",

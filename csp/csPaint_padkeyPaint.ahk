@@ -28,7 +28,11 @@ getDoubleKeyPaint(){
   dbl.append( new Operation("erace"   , 1,"x", 2, "_csp_paint_highlight_swap", "sub"))
 
   ; liquid
-  dbl.append( new Operation("curve fill"   , 2,"n", 1, "{Numpad4}", "key"))
+  dbl.append( new Operation("liquid brush"   , 2,"n", 1, "{Numpad4}", "key"))
+
+  ; flat
+  dbl.append( new Operation("flat brush"   , 3,"n", 1, "{Numpad7}", "key"))
+
   ; default
   dbl.append( new Operation("Free"   , 0,"j", 1, "{p}", "key"))
   dbl.append( new Operation("Brush"   , 0,"j", 2, "{p}", "key"))
@@ -399,6 +403,7 @@ Numpad2::
 csp_paint_highlight:
 _cspflowSC("h")
 gosub,csp_paint_flow_sc_default
+send,{Numpad9}
 return
 
 ;detail sketch
@@ -413,6 +418,15 @@ Numpad4::
 csp_paint_liduid:
 _cspflowSC("l")
 gosub,csp_paint_flow_sc_default
+send,{Numpad4}
+return
+
+;flat
+Numpad5::
+csp_paint_flat:
+_cspflowSC("f")
+gosub,csp_paint_flow_sc_default
+send,{Numpad7}
 return
 
 ; normal
