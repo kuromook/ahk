@@ -75,24 +75,7 @@ _csp_toggle_sketch_view:
 send, ^{8}
 Return
 
-
-+n::
-dbl:=getDoubleKeyLine()
-if A_TickCount < %ctrldoubleN%
-{
-  keys := dbl.byKey("n",buf_CSPFlow, 2)
-  Gosub, _csPaintResetSubTool
-  ctrldoubleN=0
-}
-else
-{
-    ctrldoubleN=%A_TickCount%
-    ctrldoubleN+=400
-    keys := dbl.byKey("n",buf_CSPFlow, 1)
-}
-return
-
-+m::
+F7::
 dbl:=getDoubleKeyLine()
 if A_TickCount < %ctrldoubleM%
 {
@@ -109,31 +92,6 @@ else
 
 }
 Return
-
-
-+j::
-if buf_csplinelayer =1
-{
-  buf_csplinelayer:=0
-  send,!^+{F15}
-  Return
-}
-dbl:=getDoubleKeyLine()
-if A_TickCount < %ctrldoubleJ%
-{
-  keys := dbl.byKey("j",buf_CSPFlow, 2)
-
-  Gosub, _csPaintResetSubTool
-  ctrldoubleJ=0
-}
-else
-{
-    ctrldoubleJ=%A_TickCount%
-    ctrldoubleJ+=400
-    keys := dbl.byKey("j",buf_CSPFlow, 1)
-
-}
-return
 
 
 
@@ -296,7 +254,7 @@ _transform2nd:
   }
 return
 
-+i::
+F10::
 dbl:=getDoubleKeyLine()
  if A_TickCount < %ctrldoubleI%
  {
@@ -324,7 +282,7 @@ if !SizeLockFlag or tempLineFlowbk
 return
 
 
-+x::
+F11::
 dbl:=getDoubleKeyLine()
  if A_TickCount < %ctrldoubleI%
  {

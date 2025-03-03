@@ -51,7 +51,7 @@ send, +{F10}
 Return
 
 
-+m::
+F7::
 dbl:=getDoubleKeyPaint()
 if A_TickCount < %ctrldoubleM%
 {
@@ -74,7 +74,7 @@ return
 
 
 
-+i::
+F10::
 dbl:=getDoubleKeyPaint()
  if A_TickCount < %ctrldoubleI%
  {
@@ -91,7 +91,7 @@ dbl:=getDoubleKeyPaint()
 return
 
 
-+x::
+F11::
 dbl:=getDoubleKeyPaint()
  if A_TickCount < %ctrldoubleX%
  {
@@ -183,21 +183,6 @@ return
 
 
 
-^+F17::
-  if A_TickCount < %ctrldoubleST%
-  {
-    Send,{CtrlDown}{9}{CtrlUp}
-    Send,{CtrlDown}{8}{CtrlUp}
-
-     ctrldoubleST=0
-   }
-  else
-   {
-    ctrldoubleST=%A_TickCount%
-    ctrldoubleST+=400
-     Send,{CtrlDown}{F16}{CtrlUp}
-   }
-Return
 
 _csp_clipping:
 if (buf_CSPFlow != 4 && buf_CSPFlow != 8 && buf_CSPFlow != 9)
