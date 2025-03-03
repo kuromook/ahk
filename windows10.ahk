@@ -30,7 +30,7 @@ return
 Return
 
 ;kill windows key
-LWin::return
+;LWin::return
 
 ;-----------------------misc-------------------------------------------------
 ;date string
@@ -76,7 +76,7 @@ Run,C:\Program Files\AutoHotkey\AutoHotkey.exe C:\tool\Autohotkey\windows10.ahk 
 return
 
 Xbutton1::
-send,{Esc}
+send,{Enter}
 return
 ;japanese input like mac OS
 LAlt & Space::

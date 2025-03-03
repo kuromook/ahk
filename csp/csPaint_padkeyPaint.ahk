@@ -3,35 +3,28 @@ getDoubleKeyPaint(){
   ; base color
   dbl.append( new Operation("main color"   , 13,"i", 1, "!{]}", "key"))
   dbl.append( new Operation("erace"   , 13,"x", 1, "!{[}", "key"))
-  dbl.append( new Operation("get color"   , 13,"n", 1, "{z}", "key"))
-  dbl.append( new Operation("spoit"   , 13,"j", 1, "{Numpad3}", "key"))
-  dbl.append( new Operation("change color"   , 13,"j", 2, "!{Delete}", "key"))
+
   dbl.append( new Operation("make base"   , 13,"m", 1, "_csp_makeBasecolor", "sub"))
 
   ; detail sketch
-  dbl.append( new Operation("main color"   , 9,"n", 1, "{e}", "key"))
-  dbl.append( new Operation("main color"   , 9,"n", 2, "_csp_curveTrance", "sub"))
+
   dbl.append( new Operation("main color"   , 9,"i", 1, "{w}", "key"))
   dbl.append( new Operation("main color"   , 9,"i", 2, "_csp_pencil_flag2", "sub"))
   dbl.append( new Operation("erace"   , 9,"x", 1, "{x}", "key"))
   dbl.append( new Operation("erace"   , 9,"x", 2, "_csp_pencil_flag", "sub"))
-  dbl.append( new Operation("Dot"   , 9,"j", 1, "_csp_pencil", "sub"))
+
   dbl.append( new Operation("mirror"   , 9,"m", 1, "{b}", "key"))
 
   
   ; general
   dbl.append( new Operation("Main"   , 6,"x", 1, "{s}", "key"))
-  dbl.append( new Operation("erace"   , 6,"x", 2, "+!{x}", "key"))
+  dbl.append( new Operation("erace"   , 6,"x", 2, "{x}", "key"))
 
   ; highlight
   dbl.append( new Operation("Main"   , 1,"x", 1, "{x}", "key"))
   dbl.append( new Operation("erace"   , 1,"x", 2, "_csp_paint_highlight_swap", "sub"))
 
-  ; liquid
-  dbl.append( new Operation("liquid brush"   , 2,"n", 1, "{Numpad4}", "key"))
-
-  ; flat
-  dbl.append( new Operation("flat brush"   , 3,"n", 1, "{Numpad7}", "key"))
+ 
 
   ; default
   dbl.append( new Operation("Free"   , 0,"j", 1, "{p}", "key"))
@@ -44,14 +37,10 @@ getDoubleKeyPaint(){
   dbl.append( new Operation("main color"   , 0,"i", 1, "{w}", "key"))
   dbl.append( new Operation("fill"   , 0,"i", 2, "{q}", "key"))
   dbl.append( new Operation("erace"   , 0,"x", 1, "{s}", "key"))
-  dbl.append( new Operation("erace"   , 0,"x", 2, "+!{x}", "key"))
+  dbl.append( new Operation("erace"   , 0,"x", 2, "{x}", "key"))
   dbl.append( new Operation("curve", 0,"s", 1, "_csp_paint_curve", "sub"))
   dbl.append( new Operation("confirm"   , 0,"s", 2, "_csp_paint_confirm", "sub"))
 
-  dbl.append( new Operation("layer " , 0,"F16", 1, "+!{F16}" , "key"))
-  dbl.append( new Operation("layer " , 0,"F17", 1, "+!{F17}" , "key"))
-  dbl.append( new Operation("layer " , 0,"F18", 1, "+!{F18}" , "key"))
-  dbl.append( new Operation("layer " , 0,"F19", 1, "+!{F19}" , "key"))
   return dbl
 }
 
@@ -80,55 +69,6 @@ else
     ctrldoubleM=%A_TickCount%
     ctrldoubleM+=400
 }
-return
-
-
-
-+j::
-dbl:=getDoubleKeyPaint()
-if A_TickCount < %ctrldoubleJ%
-{
-  keys := dbl.byKey("j",buf_CSPFlow, 2)
-    if (buf_CSPFlow > 2) && (buf_CSPFlow != 10)
-    {
-      SoundPlay,*-1
-     Gosub, _csPaintResetSubTool
-    } else {
-    keys := dbl.byKey("j",buf_CSPFlow, 1)
-    }
-  ctrldoubleJ=0
-   }
-else
-{
-    keys := dbl.byKey("j",buf_CSPFlow, 1)
-
-    ctrldoubleJ=%A_TickCount%
-    ctrldoubleJ+=400
-}
-return
-
-
-+n::
-dbl:=getDoubleKeyPaint()
-  if A_TickCount < %ctrldoubleN%
-   {
-      keys := dbl.byKey("n",buf_CSPFlow, 2)
-    if (buf_CSPFlow > 2) && (buf_CSPFlow != 10)
-    {
-    SoundPlay,*-1
-     Gosub, _csPaintResetSubTool
-    }
-    else{
-       keys := dbl.byKey("n",buf_CSPFlow, 1)
-    }
-    ctrldoubleN=0
-   }
-  else
-   {
-      keys := dbl.byKey("n",buf_CSPFlow, 1)
-    ctrldoubleN=%A_TickCount%
-    ctrldoubleN+=400
-   }
 return
 
 
@@ -168,7 +108,7 @@ dbl:=getDoubleKeyPaint()
 return
 
 
-!F14::
+F5::
 dbl:=getDoubleKeyPaint()
  if A_TickCount < %ctrldoubleS%
  {
@@ -258,32 +198,6 @@ return
      Send,{CtrlDown}{F16}{CtrlUp}
    }
 Return
-
-; Flow script by NumpadDot
-NumpadDot & F16::
-NumpadDel & F16::
-  dbl:=getDoubleKeyPaint()
-  keys := dbl.byKey("F16",buf_CSPFlow, 1)
-  return
-
-NumpadDot & F17::
-NumpadDel & F17::
-  dbl:=getDoubleKeyPaint()
-  keys := dbl.byKey("F17",buf_CSPFlow, 1)
-  return
-
-NumpadDot & F18::
-NumpadDel & F18::
-  dbl:=getDoubleKeyPaint()
-  keys := dbl.byKey("F18",buf_CSPFlow, 1)
-  return
-
-NumpadDot & F19::
-NumpadDel & F19::
-  dbl:=getDoubleKeyPaint()
-  keys := dbl.byKey("F19",buf_CSPFlow, 1)
-  return
-
 
 _csp_clipping:
 if (buf_CSPFlow != 4 && buf_CSPFlow != 8 && buf_CSPFlow != 9)

@@ -3,28 +3,23 @@
   ; White w
   dbl.append( new Operation("Common", 16,"j", 1, "{9}", "key"))
   dbl.append( new Operation("white    ", 16,"i", 2, "{8}", "key"))
-  dbl.append( new Operation("brush"   , 16,"m", 1, "{b}", "key"))
+
   dbl.append( new Operation("reverse "  , 16,"x", 2, "_csp_line_reverse_color", "sub"))
 
   ; Effect
   dbl.append( new Operation("Kabura", 11,"j", 1, "{z}", "key"))
-  dbl.append( new Operation("white    ", 11,"m", 1, "_csp_line_kamiwhite", "sub"))
+  
   dbl.append( new Operation("white    ", 11,"i", 2, "{8}", "key"))
-  dbl.append( new Operation("reverse "  , 11,"x", 2, "_csp_line_detail", "sub"))
+  dbl.append( new Operation("reverse "  , 11,"x", 2, "_csp_change_ruler", "sub"))
 
     ;mask
   dbl.append( new Operation("brush   ", 10,"j", 1, "{l}", "key"))
-  dbl.append( new Operation("air brush"   , 10,"m", 2, "_csp_line_gradation_confirm", "sub"))
-  dbl.append( new Operation("blur"   , 10,"m", 1, "_csp_line_gradation_tool", "sub"))
-  dbl.append( new Operation("reverse "  , 10,"x", 2, "_csp_reverse_and_gradation", "sub"))
+   dbl.append( new Operation("reverse "  , 10,"x", 2, "_csp_reverse_and_gradation", "sub"))
 
 
   ;Tone
   dbl.append( new Operation("Kabura", 9,"j", 1, "{p}", "key"))
-  dbl.append( new Operation("Tone     ", 9,"m", 1, "{b}", "key"))
-;  dbl.append( new Operation("Tone     ", 9,"m", 2, "csp_shadow_to_gradation", "sub"))
 
-  dbl.append( new Operation("Control", 9,"i", 2, "{8}", "key"))
   dbl.append( new Operation("wanderace", 9,"n", 1, "_csp_line_curveErace", "sub"))
   dbl.append( new Operation("wanderace", 9,"n", 2, "_csp_line_curveFillDetail", "sub"))
 
@@ -32,25 +27,25 @@
 
     ; fukidasi
   dbl.append( new Operation("white    ", 8,"j", 1, "_csp_fukidashi_line", "sub"))
-  dbl.append( new Operation("white    ", 8,"i", 2, "{i}", "key"))
-  dbl.append( new Operation("white    ", 8,"m", 1, "_csp_line_kamiwhite", "sub"))
-
-
+  dbl.append( new Operation("white    ", 8,"i", 2, "{6}", "key"))
 
   ; character Up flow
-  dbl.append( new Operation("Control", 1,"j", 1, "{f}", "key"))
+  dbl.append( new Operation("Control", 1,"j", 1, "{p}", "key"))
   dbl.append( new Operation("Control", 1,"i", 2, "{8}", "key"))
 
+  dbl.append( new Operation("brush", 1,"m", 1, "{b}", "key"))
+   dbl.append( new Operation("brush", 1,"m", 2, "{f}", "key"))
+ 
 
   ; default action (and without flow setting)
-  dbl.append( new Operation("Pen"   , 0,"j", 1, "{f}", "key"))
-  dbl.append( new Operation("wanderace", 0,"n", 1, "_csp_line_curveErace", "sub"))
-  dbl.append( new Operation("wanderace", 0,"n", 2, "_csp_line_curveFillDetail", "sub"))
+  dbl.append( new Operation("Pen"   , 0,"j", 1, "{p}", "key"))
+  ;dbl.append( new Operation("wanderace", 0,"n", 1, "_csp_line_curveErace", "sub"))
+  ;dbl.append( new Operation("wanderace", 0,"n", 2, "_csp_line_curveFillDetail", "sub"))
 
   dbl.append( new Operation("brush", 0,"m", 1, "{b}", "key"))
-  dbl.append( new Operation("confirm", 0,"m", 2, "{F19}", "key"))
+  dbl.append( new Operation("confirm", 0,"m", 2, "{F}", "key"))
   dbl.append( new Operation("select curve", 0,"s", 1, "{a}", "key"))
-  dbl.append( new Operation("Confirm", 0,"s", 2, "+{F17} ", "key"))
+  dbl.append( new Operation("Confirm", 0,"s", 2, "_csp_line_confirm", "sub"))
   dbl.append( new Operation("fill"  , 0,"i", 2, "{8}", "key"))
   dbl.append( new Operation("transparent"  , 0,"x", 1, "{x}", "key"))
   dbl.append( new Operation("reverse "  , 0,"x", 2, "_csp_change_ruler", "sub"))
@@ -61,7 +56,6 @@
 
 _csp_change_ruler:
 send,^{4}
-send,{w}
 return
 
 _csp_toggle_sketch_view:
@@ -109,14 +103,10 @@ else
 {
     ctrldoubleM=%A_TickCount%
     ctrldoubleM+=400
-    if !croquisFlag
-    {
+
       keys := dbl.byKey("m",buf_CSPFlow, 1)
-    }
-    else
-    {
-      Send,{e}
-    }
+
+
 }
 Return
 
@@ -147,12 +137,11 @@ return
 
 
 
-!F14::
+F5::
 dbl:=getDoubleKeyLine()
 if A_TickCount < %ctrldoubleS%
 {
   ;keys := dbl.byKey("s",buf_CSPFlow, 2)
-
   Gosub, _csp_line_confirm
   ctrldoubleS=0
 }
@@ -209,7 +198,7 @@ else{
 Return
 
 _csp_line_curve:
-send,{a}
+send,{F5}
 Return
 
 _csp_line_crop:
@@ -269,12 +258,10 @@ _csp_line_gradation_tool:
 
 _csp_line_curveErace:
 send,{e}
-send,{x}
 Return
 
 _csp_line_curveFill:
-send,{e}
-send,{w}
+send,{z}
 Return
 
 _csp_line_curveFillDetail:
@@ -536,7 +523,6 @@ gosub, csp_gradation_nip
 Return
 
 :*:055::
-F5::
 csp_gradation_nip:
 _buf_CSP_line_gradation:="{y}"
 send,^{d}
