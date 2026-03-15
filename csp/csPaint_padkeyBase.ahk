@@ -41,7 +41,7 @@ return
 return
 
 _csPaintBaseNewlayer:
-    Send,{F16}
+    Send,{F7}
     send,{w}
     send,{g}
     send,{F1}

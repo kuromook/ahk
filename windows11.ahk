@@ -17,9 +17,10 @@ AppsKey::#Tab
 
 #F1::  Winset, Alwaysontop, , A
 
+
 ;-----------------------disable winkey/capslock-------------------------------------------------
-vkF0::Return
-Shift & vk14::Return
+*vkF0::Return
+*CapsLock::Return
 
 ;kill windows key hotkey
 #p::
@@ -30,7 +31,7 @@ return
 Return
 
 ;kill windows key
-;LWin::return
+LWin::return
 
 ;-----------------------misc-------------------------------------------------
 ;date string

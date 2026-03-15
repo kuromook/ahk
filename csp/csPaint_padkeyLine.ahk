@@ -31,7 +31,7 @@
 
   ; character Up flow
   dbl.append( new Operation("Control", 1,"j", 1, "{p}", "key"))
-  dbl.append( new Operation("Control", 1,"i", 2, "{8}", "key"))
+  
 
   dbl.append( new Operation("brush", 1,"m", 1, "{b}", "key"))
    dbl.append( new Operation("brush", 1,"m", 2, "{f}", "key"))
@@ -41,7 +41,7 @@
   dbl.append( new Operation("Pen"   , 0,"j", 1, "{p}", "key"))
   ;dbl.append( new Operation("wanderace", 0,"n", 1, "_csp_line_curveErace", "sub"))
   ;dbl.append( new Operation("wanderace", 0,"n", 2, "_csp_line_curveFillDetail", "sub"))
-
+ dbl.append( new Operation("main color"   , 0,"i", 1, "{w}", "key"))
   dbl.append( new Operation("brush", 0,"m", 1, "{b}", "key"))
   dbl.append( new Operation("confirm", 0,"m", 2, "{F}", "key"))
   dbl.append( new Operation("select curve", 0,"s", 1, "{a}", "key"))
@@ -93,7 +93,36 @@ else
 }
 Return
 
++i::
+dbl:=getDoubleKeyPaint()
+ if A_TickCount < %ctrldoubleI%
+ {
+    keys := dbl.byKey("i",buf_CSPFlow, 2)
+    ctrldoubleI=0
 
+ }
+ else
+ {
+    ctrldoubleI=%A_TickCount%
+    ctrldoubleI+=400
+    keys := dbl.byKey("i",buf_CSPFlow, 1)
+ }
+ return
+
+ +x::
+ if A_TickCount < %ctrldouble%
+ {
+    keys := dbl.byKey("x",buf_CSPFlow, 2)
+    ctrldouble=0
+
+ }
+ else
+ {
+    ctrldouble=%A_TickCount%
+    ctrldouble+=400
+    Send,{x} 
+ }
+ return
 
 F5::
 dbl:=getDoubleKeyLine()

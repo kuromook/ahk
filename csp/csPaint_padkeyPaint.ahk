@@ -75,6 +75,7 @@ return
 
 
 F10::
++i::
 dbl:=getDoubleKeyPaint()
  if A_TickCount < %ctrldoubleI%
  {
