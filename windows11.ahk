@@ -4,7 +4,7 @@
 #Include %A_ScriptDir%\AutoHotkey-JSON\JSON.ahk
 #Include <remoteBuf>
 
-#Include %A_ScriptDir%\TT\TT.ahk
+; TT library is no longer used by active scripts. Archived under _unused\TT.
 #Include %A_ScriptDir%\IME\IME.ahk
 
 #Include %A_ScriptDir%

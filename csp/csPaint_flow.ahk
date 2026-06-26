@@ -25,7 +25,7 @@ if ErrorLevel=Match
     }
     if(buf_CSPFlow)
     {
-      TT_Remove()
+      ToolTip,,,,13
     }
     flow := flowObj.byKey(InputChar, buf_CSPMode)
     if(flow)

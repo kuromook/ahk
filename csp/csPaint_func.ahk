@@ -75,9 +75,9 @@ _csPaintFlow(flow)
   ToolTip,,,,13
   msg:=flow.videoPath
   OutputDebug, showmsg %msg%
-  flowTT:=TT(flow.onclick())
-  ;flowTT.show(flow.message(),flow.x, flow.y ,flow.title())
-  flowTT.show("message disabled",flow.x, flow.y ,flow.title())
+  x := 10
+  y := A_ScreenHeight - 120
+  ToolTip,% flow.title(),% x,% y,13
 
   return
 }
@@ -127,7 +127,7 @@ class Flow
       this.videoPath := videoPath
       this.msg := msg
       this.x := 10
-      this.y := 400
+      this.y := A_ScreenHeight - 120
     }
 
     title(){
@@ -135,7 +135,7 @@ class Flow
     }
 
     onclick(){
-        msg := "OnClick=TT_MsgFlow"
+        msg := ""
         return msg
     }
 
@@ -283,7 +283,7 @@ nextFlow(InputChar){
     }
     if(buf_CSPFlow)
     {
-      TT_Remove()
+      ToolTip,,,,13
     }
     flow := flowObj.byKey(InputChar, buf_CSPMode)
     if(flow)
@@ -466,7 +466,7 @@ _cspflowSC(char){
     }
     if(buf_CSPFlow)
     {
-      TT_Remove()
+      ToolTip,,,,13
     }
     flow := flowObj.byKey(char, buf_CSPMode)
     if(flow)
@@ -496,7 +496,7 @@ _cspflowFlag(flag){
     }
     if(buf_CSPFlow)
     {
-      TT_Remove()
+      ToolTip,,,,13
     }
     flow := flowObj.byFlag(flag, buf_CSPMode)
     if(flow)

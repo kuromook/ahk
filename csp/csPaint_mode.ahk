@@ -80,7 +80,7 @@ Else
   {
     buf_CSPModeHelp :=0
     CoordMode, ToolTip,Screen
-    Gosub , _toolTipFuncCSP_SCList
+    ToolTip,,,,1
   }
   Else
   {

@@ -1,5 +1,6 @@
 #Include %A_ScriptDir%\csp\csPaint_func.ahk
-#Include %A_ScriptDir%\csp\csPaint_funcGroup.ahk
+; Disabled unused/legacy group shortcut labels. Archived under csp\_unused.
+; #Include %A_ScriptDir%\csp\csPaint_funcGroup.ahk
 #Include %A_ScriptDir%\csp\csPaint_common.ahk
 
 
@@ -23,10 +24,12 @@ return (WinActive("CLIP STUDIO PAINT") or WinActive("ahk_class 742DEA58-ED6B-440
 #Include %A_ScriptDir%\csp\csPaint_main.ahk
 #Include %A_ScriptDir%\csp\csPaint_mode.ahk
 #Include %A_ScriptDir%\csp\csPaint_flow.ahk
-#Include %A_ScriptDir%\csp\csPaint_tooltip.ahk
-#Include %A_ScriptDir%\csp\csPaint_tooltipPaint.ahk
-#Include %A_ScriptDir%\csp\csPaint_tooltipFlow.ahk
-#Include %A_ScriptDir%\csp\cspPaint_flowGetDoubleKey.ahk
+; Disabled stale tooltip shortcut lists. Archived under csp\_unused.
+; #Include %A_ScriptDir%\csp\csPaint_tooltip.ahk
+; #Include %A_ScriptDir%\csp\csPaint_tooltipPaint.ahk
+; #Include %A_ScriptDir%\csp\csPaint_tooltipFlow.ahk
+; Disabled unused/legacy flow message builders. Archived under csp\_unused.
+; #Include %A_ScriptDir%\csp\cspPaint_flowGetDoubleKey.ahk
 
 #If csPaintWindows() and (buf_CSPMode == 10 or buf_CSPMode == 11) and !(IME_IsON(WinExist("A")))
 #Include %A_ScriptDir%\csp\csPaint_padkeyPaint.ahk
@@ -39,16 +42,18 @@ return (WinActive("CLIP STUDIO PAINT") or WinActive("ahk_class 742DEA58-ED6B-440
 
 #If csPaintWindows() and (buf_CSPMode == 3) and !(IME_IsON(WinExist("A")))
 #Include %A_ScriptDir%\csp\csPaint_padkeyBase.ahk
-#Include %A_ScriptDir%\csp\csPaint_renameBase.ahk
+; Disabled unused/legacy base rename hotstrings. Archived under csp\_unused.
+; #Include %A_ScriptDir%\csp\csPaint_renameBase.ahk
 
 #If csPaintWindows() and (buf_CSPMode == 2) and !(IME_IsON(WinExist("A")))
 #Include %A_ScriptDir%\csp\csPaint_padkeyLine.ahk
 
 #If csPaintWindows() and (buf_CSPMode == 2) and (IME_IsON(WinExist("A")))
 #Include %A_ScriptDir%\csp\csPaint_padkeyLine.ahk
-#IncludeAgain %A_ScriptDir%\csp\csPaint_textShortInput.ahk
-#IncludeAgain %A_ScriptDir%\csp\csPaint_textpropertyShortInput.ahk
-#IncludeAgain %A_ScriptDir%\csp\csPaint_speeddial.ahk
+; Disabled unused/legacy text shortcuts. Archived under csp\_unused.
+; #IncludeAgain %A_ScriptDir%\csp\csPaint_textShortInput.ahk
+; Disabled unused/legacy text-property shortcuts. Archived under csp\_unused.
+; #IncludeAgain %A_ScriptDir%\csp\csPaint_textpropertyShortInput.ahk
+; #IncludeAgain %A_ScriptDir%\csp\csPaint_speeddial.ahk
 
 #If
-
