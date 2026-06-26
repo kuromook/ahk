@@ -1,8 +1,3 @@
-
-
-flowJsonFile := %A_ScriptDir% . "\csp\flow.json"
-
-
 #Include %A_ScriptDir%\csp\csPaint_func.ahk
 #Include %A_ScriptDir%\csp\csPaint_funcGroup.ahk
 

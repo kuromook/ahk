@@ -234,7 +234,6 @@ class FlowObj
 
 getStrFromJson(){
   str:=""
-  OutputDebug, jsonfile , %fileJsonFile%
   Loop, read, %A_ScriptDir%\csp\flow.json
     str .= A_LoopReadLine
   return str
