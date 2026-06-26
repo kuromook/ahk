@@ -110,6 +110,7 @@ dbl:=getDoubleKeyLine()
  return
 
  +x::
+dbl:=getDoubleKeyLine()
  if A_TickCount < %ctrldouble%
  {
     keys := dbl.byKey("x",buf_CSPFlow, 2)
