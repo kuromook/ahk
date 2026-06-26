@@ -1,48 +1,34 @@
 ; =============================================================================
 ; csPaint_common.ahk
-; 共通ユーティリティ：DoubleKeyマクロ・フロー操作ヘルパー
-; =============================================================================
-; 使い方：各padkeyファイルの先頭で #Include csPaint_common.ahk
+; Shared helpers for CSP padkey scripts.
 ; =============================================================================
 
-; --- DoubleKey タイミング定数 ------------------------------------------------
-global DBL_INTERVAL := 400   ; ダブルタップ判定ミリ秒
+; Double-tap interval in milliseconds.
+DBL_INTERVAL := 400
 
-; --- DoubleKey マクロ ---------------------------------------------------------
-; HandleDoubleKey(varName, dblObj, keyChar)
-;   varName  : タイムスタンプ保持変数名（文字列）例 "ctrldbl_M"
-;   dblObj   : DoubleKey オブジェクト
-;   keyChar  : dbl.byKey() に渡すキー文字
-;
-; 呼び出し例:
-;   F7::
-;     dbl := getDoubleKeyPaint()
-;     HandleDoubleKey("ctrldbl_M", dbl, "m")
-;   return
-;
-HandleDoubleKey(varName, dblObj, keyChar) {
+; HandleDoubleKey(timerName, dblObj, keyChar, interval)
+;   timerName : unique timer key, for example "paint_m" or "line_x"
+;   dblObj    : DoubleKey object
+;   keyChar   : key passed to dbl.byKey()
+;   interval  : optional double-tap interval override
+HandleDoubleKey(timerName, dblObj, keyChar, interval := "") {
     global buf_CSPFlow, DBL_INTERVAL
+    static timers := {}
+
+    if (interval = "")
+        interval := DBL_INTERVAL ? DBL_INTERVAL : 400
+
     ts := A_TickCount
-    if (ts < %varName%) {
+    if (timers.HasKey(timerName) && ts < timers[timerName]) {
         dblObj.byKey(keyChar, buf_CSPFlow, 2)
-        %varName% := 0
+        timers.Delete(timerName)
     } else {
-        %varName% := ts + DBL_INTERVAL
+        timers[timerName] := ts + interval
         dblObj.byKey(keyChar, buf_CSPFlow, 1)
     }
 }
 
-; --- Line系 共通フロー切替+レイヤー選択 ------------------------------------
-; _cspLine_switchFlow(flowId, jOrN, extraSends)
-;   flowId     : _cspflowSC() に渡すフロー識別子
-;   jOrN       : byKey に渡すキー ("j" or "n")
-;   extraSends : フロー設定後に追加で送るキー配列（省略可）
-;
-; 呼び出し例（Numpad5など繰り返しパターンの置き換え）:
-;   Numpad5::
-;     _cspLine_switchFlow("s", "j", ["{F1}", "{w}"])
-;   return
-;
+; Switch a line flow and select the default layer/tool sequence.
 _cspLine_switchFlow(flowId, jOrN = "j", extraSends = "") {
     global buf_CSPFlow, _buf_CSP_line_bkflag
     _cspflowSC(flowId)
@@ -56,11 +42,7 @@ _cspLine_switchFlow(flowId, jOrN = "j", extraSends = "") {
     _buf_CSP_line_bkflag :=
 }
 
-; --- Paint系 共通フロー切替+デフォルトブラシ選択 ---------------------------
-; _cspPaint_switchFlow(flowId, extraSends)
-;   flowId     : _cspflowSC() に渡すフロー識別子
-;   extraSends : フロー設定後に追加で送るキー配列（省略可）
-;
+; Switch a paint flow and select the default brush sequence.
 _cspPaint_switchFlow(flowId, extraSends = "") {
     global buf_CSPFlow
     _cspflowSC(flowId)

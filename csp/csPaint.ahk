@@ -1,5 +1,6 @@
 #Include %A_ScriptDir%\csp\csPaint_func.ahk
 #Include %A_ScriptDir%\csp\csPaint_funcGroup.ahk
+#Include %A_ScriptDir%\csp\csPaint_common.ahk
 
 
 SetTitleMatchMode,2
