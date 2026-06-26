@@ -94,7 +94,7 @@ else
 Return
 
 +i::
-dbl:=getDoubleKeyPaint()
+dbl:=getDoubleKeyLine()
  if A_TickCount < %ctrldoubleI%
  {
     keys := dbl.byKey("i",buf_CSPFlow, 2)

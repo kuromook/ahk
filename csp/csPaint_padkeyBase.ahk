@@ -22,6 +22,7 @@ send, +{F10}
 Return
 
 +m::
+dbl:=getDoubleKeyBase()
   if A_TickCount < %ctrldoubleM%
    {
       keys := dbl.byKey("m",buf_CSPFlow, 2)
