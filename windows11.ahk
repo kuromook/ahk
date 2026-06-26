@@ -73,7 +73,7 @@ Return
 ;excute AutoHotKey reboot
 #0::
 Suspend,Permit
-Run,C:\Program Files\AutoHotkey\AutoHotkey.exe C:\tool\Autohotkey\windows10.ahk /r /f
+Run,C:\Program Files\AutoHotkey\AutoHotkey.exe C:\Users\sh1\tool\Autohotkey\windows11.ahk /r /f
 return
 
 Xbutton1::
