@@ -1,11 +1,6 @@
-#Include %A_ScriptDir%\_Struct\sizeof.ahk
-#Include %A_ScriptDir%\_Struct\_Struct.ahk
-#Include %A_ScriptDir%\_Struct\Struct.ahk
 #Include %A_ScriptDir%\AutoHotkey-JSON\JSON.ahk
-#Include <remoteBuf>
 
-; TT library is no longer used by active scripts. Archived under _unused\TT.
-#Include %A_ScriptDir%\IME\IME.ahk
+#Include %A_ScriptDir%\ime_control.ahk
 
 #Include %A_ScriptDir%
 #Include app.ahk

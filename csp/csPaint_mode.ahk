@@ -3,9 +3,7 @@
 RAlt & m::
 Appskey & m::              ;first key
 Suspend,Permit
-if(IME_IsON(WinExist("A")) ){
- IME_ON(WinExist("A"), False)
-}
+IME_EnsureOff(WinExist("A"))
 Input,InputChar,C I L1 T2,{Esc},q,b,k,l,p,m ;second keys
 if ErrorLevel=Match
 {

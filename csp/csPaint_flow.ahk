@@ -3,9 +3,7 @@ Appskey & f::              ;first key
 RAlt & .::
 Appskey & .::
 Suspend,Permit
-if(IME_IsON(WinExist("A")) ){
- IME_ON(WinExist("A"), False)
-}
+IME_EnsureOff(WinExist("A"))
 if(buf_CSPMode =10) 
   Input,InputChar,C I L1 T2,{Esc},a,b,d,e,f,h,l,q ;paint mode
 else if(buf_CSPMode =3)
