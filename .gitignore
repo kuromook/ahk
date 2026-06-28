@@ -9,6 +9,7 @@
 *.lib
 *~
 _history
+_unused/
 
 Lib/
 _Struct/

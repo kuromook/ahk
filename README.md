@@ -1,55 +1,63 @@
-# Autohotkey
+# AutoHotkey
 
+Windows と制作アプリ向けの個人用 AutoHotkey 設定です。中心は
+`windows11.ahk` で、共通ホットキー、Clip Studio Paint 用マクロ、
+Photoshop 用ショートカット、JoyToKey 設定をまとめています。
 
-  
-windowsの操作をラップします　ほとんどクリスタ用  
-+ windows10.ahk windows 操作のラップ（ほとんどの人が関心ありそうなやつ)
-+ numpadfunc.ahk テンキーでファンクションキーショートカットを押させる
-+ app.ahk その他のアプリケーション用
-+ csp クリスタの機能強化 (整理できてませんのであくまで解説・公開のみ)
+## エントリポイント
 
+- `windows11.ahk`: メインスクリプト。共通キー設定と各モジュールを読み込みます。
+- `ime_control.ahk`: 外部 IME ライブラリの代わりに使う最小 IME 制御ヘルパーです。
+- `app.ahk`: Emacs / Firefox などアプリ別の補助ショートカットです。
+- `photoshop.ahk`: Photoshop 向けのショートカット補助です。
+- `numpadFunc.ahk`: テンキーから `Ctrl+Shift+Alt+F1` から `F12` を送る補助です。
 
-### clip studio paint mode/flow概要(csp以下)
-#### 要ライブラリ
-IME (https://github.com/karakaram/alt-ime-ahk) . 
-TT (https://github.com/HotKeyIt/TT) . 
-_struct(https://github.com/HotKeyIt/_Struct) . 
-Autohotkey-json  (https://github.com/cocobelgica/AutoHotkey-JSON) . 
+## Clip Studio Paint
 
-#### 作成の経緯
-クリスタの機能として、ワークスペースがあります  
-ワークスペースは、各ワークスペースごとにショートカットやウィンドウレイアウトが保存できます  
-しかし、修飾キー(modifier key)は全ワークスペース共通であり、ショートカットバインドに制限が多くあります  
-また、各ワークスペースごとに部分的にショートカット群の切り替えや継承もできません  
-mode/flowはそれらの問題を解決するためのものです  
+`csp/` に Clip Studio Paint 用の mode / flow / pad key 系スクリプトがあります。
+`windows11.ahk` から `csp/csPaint.ahk` を読み込み、CSP のウィンドウがアクティブな時だけ
+関連ホットキーが有効になります。
 
-（注意）ほとんど個人的なものとしてできています、整理できていません
-その内、他の人と共用できる形にまとめたいとは思っていますが、参考までに
+主な構成:
 
-mode :ワークスペースにぶら下がる形で設定するショートカット・マクロ群  
-flow :左手デバイスの数ボタンに限定して、さらに細かく分化したショートカット・マクロ群  
+- `csp/csPaint.ahk`: CSP 用 include の入口とコンテキスト条件です。
+- `csp/csPaint_main.ahk`: CSP 全体で使う主要操作です。
+- `csp/csPaint_mode.ahk`: mode 切り替えです。
+- `csp/csPaint_flow.ahk` / `csp/csPaint_flowPaint.ahk`: flow 切り替えと表示です。
+- `csp/csPaint_padkey*.ahk`: mode ごとのパッド入力受け取りです。
+- `csp/flow.json`: flow 定義データです。
 
-### workspace とmode、flowの関係
-+ paint workspace
-  - paint mode（彩色）
-    + default flow (彩色)
-    + mask (マスク、マスクモードとほぼ同等)
-    + sketch (ラフ・ラフモードとほぼ同等)
-    + high light (ハイライト彩色用)
-  - rough mode(ラフ）
-+ line work space
-  - line mode(線画・モノクロ漫画)
-    + default flow (線画)
-    + white flow （ホワイト)
-    + mask flow (クイックマスク)
-    + effect flow (効果・書き文字)
-    + fukidashi flow (吹き出し)
-    + tone flow （トーン彩色)
-+ mask workspace
-  - base mode (色分け)
-    + base flow (色分け)
-    + sub flow (色分け彩色)
+古い CSP スクリプトは `csp/_unused/` に退避していますが、`_unused/` は git では追跡しません。
 
-#### その他
-csp/csPaint_layerRenamer.ahk live2D/spine等レイヤが爆増した場合の対処用  
-csp/csPaint_textShortInput.ahk ハートなどの特殊記号入力補助
+## JoyToKey
+
+JoyToKey の設定は `JoyToKey692/` にあります。実行ファイルやログは ignore し、
+設定ファイルだけを管理します。
+
+管理対象:
+
+- `JoyToKey692/AppLink.dat`
+- `JoyToKey692/JoyToKey.ini`
+- `JoyToKey692/clipstudiopaint.cfg`
+- `JoyToKey692/pc88.cfg`
+- `JoyToKey692/th.cfg`
+
+キー割り当ての詳細は `doc/joytokey-keymap.md` を参照してください。
+
+## 外部依存
+
+- `AutoHotkey-JSON/JSON.ahk`: `csp/csPaint_func.ahk` の `JSON.parse()` で使用します。
+
+過去に使っていた `IME/`, `TT/`, `_Struct/`, `Lib/` は現在の active script からは外しており、
+必要なものだけを project-owned な実装に置き換えています。
+
+## ドキュメント
+
+ドキュメントは `doc/` に集約しています。
+
+- `doc/joytokey-keymap.md`: JoyToKey と AHK 側の対応表です。
+- `doc/work_log.md`: 直近の整理履歴です。
+
+## ローカル退避領域
+
+`_unused/` と各階層の `_unused/` はローカル退避用です。git では追跡しません。
